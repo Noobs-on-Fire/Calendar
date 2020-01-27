@@ -1,5 +1,5 @@
 # features 
-###### [complete before 31 jan]
+###### [complete before 29 jan]
 
 * view basic calendar as per month and year selection
 * automatic disable / dull display of previous days
@@ -17,5 +17,5 @@
 ###### [complete before 28 feb]
 
 * ability to connect your google calendar
-  
+* send notification in same app to different user.
 

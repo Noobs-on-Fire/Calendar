@@ -1,0 +1,71 @@
+.body .cell {
+  position: relative;
+  height: 16.6vh; /*5em*/
+  border-right: 1px solid var(--border-color);
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--neutral-color);
+  transition: 0.25s ease-out;
+}
+
+.body .cell:hover {
+  background: var(--bg-color);
+  transition: 0.5s ease-out;
+}
+
+.body .selected {
+  border-left: 10px solid transparent;
+  border-image: linear-gradient(45deg, #1a8fff 0%, #53cbf1 40%);
+  border-image-slice: 1;
+}
+
+.body .row {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.body .row:last-child {
+  border-bottom: none;
+}
+
+.body .cell:last-child {
+  border-right: none;
+}
+
+.body .cell .number {
+  position: absolute;
+  font-size: 82.5%;
+  line-height: 1;
+  top: 0.75em;
+  right: 0.75em;
+  font-weight: 700;
+}
+
+.body .disabled {
+  color: var(--text-color-light);
+  pointer-events: none;
+}
+
+.body .cell .bg {
+  font-weight: 700;
+  line-height: 1;
+  color: var(--main-color);
+  opacity: 0;
+  font-size: 17vh; /*8em*/
+  position: absolute;
+  top: -0.2em;
+  right: -0.05em;
+  transition: 0.25s ease-out;
+  letter-spacing: -0.07em;
+}
+
+.body .cell:hover .bg,
+.body .selected .bg {
+  opacity: 0.5; /*0.05*/
+  transition: 0.5s ease-in;
+}
+
+.body .col {
+  flex-grow: 0;
+  flex-basis: calc(100% / 7);
+  width: calc(100% / 7);
+}

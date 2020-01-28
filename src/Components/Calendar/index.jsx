@@ -10,6 +10,7 @@ class Calendar extends Component {
         <Header />
         <DaysHeader />
         <Day />
+        <h2>Added</h2>
       </div>
     );
   }

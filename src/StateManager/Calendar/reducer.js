@@ -1,4 +1,5 @@
-import { PREV_MONTH, NEXT_MONTH, prevMonth, nextMonth } from "./actions";
+// import { prevMonth, nextMonth } from "./actionCreator";
+import { NEXT_MONTH, PREV_MONTH } from "./actionTypes";
 import moment from "moment";
 
 const initialState = {
@@ -9,12 +10,15 @@ const initialState = {
 function calendarApp(state = initialState, action) {
   switch (action.type) {
     case NEXT_MONTH:
-      return Object.assign({}, state, {
-        currentMonth: nextMonth(state.currentMonth)
-      });
+      const nextMon = moment(state.currentMonth).add(1, "M");
+      return {
+        ...state,
+        currentMonth: nextMon
+      };
     case PREV_MONTH:
+      const prevMon = moment(state.currentMonth).subtract(1, "M");
       return Object.assign({}, state, {
-        currentMonth: prevMonth(state.currentMonth)
+        currentMonth: prevMon
       });
     default:
       return state;

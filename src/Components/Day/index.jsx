@@ -1,18 +1,15 @@
 import React, { Component } from "react";
 import moment from "moment";
 import "./style.css";
+import { connect } from "react-redux";
 
 class Day extends Component {
-  state = {
-    selectedDate: ""
-  };
   render() {
-    const { selectedMonth } = this.props; // fetch current month from the global store
-
-    const monthStart = moment(selectedMonth).startOf("Month");
+    const { currentMonth } = this.props; // fetch current month from the global store
+    const monthStart = moment(currentMonth).startOf("Month");
     //   .format("llll");
 
-    const monthEnd = moment(selectedMonth).endOf("Month");
+    const monthEnd = moment(currentMonth).endOf("Month");
     //   .format("llll");
 
     const startDate = moment(monthStart).startOf("Week");
@@ -31,7 +28,6 @@ class Day extends Component {
     let days = []; // will store days for week
     let day = startDate; // initially
     console.log(day);
-    // console.log(moment(day).isSame(monthStart, "month"));
 
     while (day <= endDate) {
       for (let i = 0; i < 7; i++) {
@@ -54,7 +50,6 @@ class Day extends Component {
         );
         day = moment(day).add(1, "days");
       }
-      //   console.log(days);
       rows.push(
         <div className="row" key={day}>
           {days}
@@ -63,10 +58,13 @@ class Day extends Component {
       days = [];
     }
 
-    // console.log(rows);
-
     return <div className="body">{rows}</div>;
   }
 }
+const mapStateToProps = state => {
+  return {
+    currentMonth: state.calendar.currentMonth
+  };
+};
 
-export default Day;
+export default connect(mapStateToProps)(Day);

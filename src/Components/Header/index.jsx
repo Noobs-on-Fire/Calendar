@@ -2,28 +2,33 @@ import React, { Component } from "react";
 import moment from "moment";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import "./style.css";
+import { prevMonth, nextMonth } from "../../actions";
+import { connect } from "react-redux";
+
 class Header extends Component {
-  state = {
-    currentMonth: moment().format()
-  };
+  // state = {
+  //   currentMonth: moment().format()
+  // };
   prevMonth = () => {
-    this.setState({
-      currentMonth: moment(this.state.currentMonth)
-        .subtract(1, "M") // subtract one month
-        .format()
-    });
+    // this.setState({
+    //   currentMonth: moment(this.state.currentMonth)
+    //     .subtract(1, "M") // subtract one month
+    //     .format()
+    // });
+    this.props.prevMonth(this.state.currentMonth);
   };
 
   nextMonth = () => {
-    this.setState({
-      currentMonth: moment(this.state.currentMonth)
-        .add(1, "M") // add one month
-        .format()
-    });
+    // this.setState({
+    //   currentMonth: moment(this.state.currentMonth)
+    //     .add(1, "M") // add one month
+    //     .format()
+    // });
+    this.props.nextMonth(this.state.currentMonth);
   };
 
   render() {
-    console.log(this.state.currentMonth);
+    // console.log(this.state.currentMonth);
 
     return (
       <div className="header row flex-middle">
@@ -47,4 +52,4 @@ class Header extends Component {
   }
 }
 
-export default Header;
+export default connect(null, { prevMonth, nextMonth })(Header);

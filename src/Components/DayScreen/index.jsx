@@ -4,29 +4,40 @@ import TodoList from "../TodoList";
 import "./style.css";
 import { toggleDayScreen } from "../../StateManager/Calendar/actionCreator";
 import { connect } from "react-redux";
+import moment from "moment";
 
 class DayScreen extends Component {
   state = {};
+
   render() {
-    // const status = this.props.dayScreen;
-    return this.props.dayScreen ? (
-      <div className="day-screen">
-        <div className="header">
-          <p>ajj ki tareekh</p>
-          <button onClick={this.props.toggleDayScreen(true)}>close</button>
+    let dayScreenClasses = this.props.dayScreen
+      ? "day-screen"
+      : "day-screen hidden";
+
+    return (
+      <div className={dayScreenClasses}>
+        <button
+          className="delete-btn"
+          onClick={() => this.props.toggleDayScreen(false)}
+        >
+          close
+        </button>
+        <div className="day-screen-header">
+          <div className="day-screen-date">{this.props.selectedDate}</div>
         </div>
         <div className="day-screen-body">
           <EventList />
           <TodoList />
         </div>
       </div>
-    ) : null;
+    );
   }
 }
 
 const mapStateToProps = state => {
   return {
-    dayScreen: state.calendar.dayScreen
+    dayScreen: state.calendar.dayScreen,
+    selectedDate: moment(state.calendar.selectedDate).format("MMMM Do,dddd")
   };
 };
 

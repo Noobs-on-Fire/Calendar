@@ -13,8 +13,8 @@ class EventList extends Component {
     return (
       <div className="event-list">
         <h2>Events list</h2>
-        {hours.map(hour => (
-          <div className="hour-card">
+        {hours.map((hour, index) => (
+          <div className="hour-card" key={index}>
             <span className="title">{hour}:00</span>
             <span className="event-space"> iski charcha</span>
           </div>

@@ -1,7 +1,13 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
 .App {
   text-align: center;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   width: 100vw;
+  height: 90vh; /* temporary hack correct this style*/
 }

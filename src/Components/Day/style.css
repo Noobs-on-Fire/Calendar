@@ -1,3 +1,8 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
 .body .cell {
   position: relative;
   height: 16.6vh; /*5em*/

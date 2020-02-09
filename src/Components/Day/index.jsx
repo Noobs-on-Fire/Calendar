@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import moment from "moment";
 import "./style.css";
 import { connect } from "react-redux";
+import { toggleDayScreen } from "../../StateManager/Calendar/actionCreator";
 
 class Day extends Component {
   render() {
@@ -42,7 +43,7 @@ class Day extends Component {
                 : ""
             }`}
             key={day}
-            onClick={() => this.onDateClick()}
+            onClick={() => this.props.toggleDayScreen(true)}
           >
             <span className="number">{moment(day).format("D")}</span>
             <span className="bg">{moment(day).format("D")}</span>
@@ -67,4 +68,12 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Day);
+const mapDispatchToProps = dispatch => {
+  return {
+    toggleDayScreen: status => {
+      dispatch(toggleDayScreen(status));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Day);

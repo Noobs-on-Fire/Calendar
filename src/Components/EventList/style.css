@@ -1,0 +1,29 @@
+.event-list {
+  min-width: 50%;
+  border-right: 1px solid var(--border-color);
+  height: 100%;
+  overflow: auto;
+  max-height: 100vh;
+}
+
+.hour-card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  height: 30px;
+}
+
+.title {
+  width: 20%;
+  border-right: 1px solid var(--border-color);
+}
+
+.event-space {
+  width: 80%;
+  text-align: left;
+  padding: 2px 5px;
+  cursor: pointer;
+}

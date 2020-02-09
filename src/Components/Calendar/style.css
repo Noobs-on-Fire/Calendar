@@ -1,7 +1,7 @@
 .calendar {
   display: block;
   position: relative;
-  width: 100%;
+  min-width: 60vw;
   background: var(--neutral-color);
   border: 1px solid var(--border-color);
 }

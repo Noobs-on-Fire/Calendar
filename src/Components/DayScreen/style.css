@@ -1,0 +1,17 @@
+.header {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 135%;
+  padding: 1.5em 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.day-screen {
+  width: 40vw;
+}
+
+.day-screen-body {
+  display: flex;
+  flex-direction: row;
+  height: 90%;
+}
